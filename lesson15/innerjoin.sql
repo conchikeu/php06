@@ -1,0 +1,1 @@
+SELECT * FROM `products` INNER JOIN categories ON products.productID = categories.categoryID WHERE products.productName = 'Basse'

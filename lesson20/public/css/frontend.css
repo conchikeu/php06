@@ -1,0 +1,13 @@
+h1 {
+	color: blue;
+}
+a {
+	text-decoration: none;
+}
+ul li {
+	float: left;
+	list-style-type: none;
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid gray;
+}
