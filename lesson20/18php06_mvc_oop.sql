@@ -28,11 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `news` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `create` varchar(255) NOT NULL,
-
+  `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -41,7 +37,7 @@ CREATE TABLE `news` (
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE `products2` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL DEFAULT 'default.png'
@@ -60,7 +56,7 @@ ALTER TABLE `news`
 --
 -- Indexes for table `products`
 --
-ALTER TABLE `products`
+ALTER TABLE `products2`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -75,7 +71,7 @@ ALTER TABLE `news`
 --
 -- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `products`
+ALTER TABLE `products2`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -4,4 +4,5 @@
 		<p>Title <input type="text" name="title" placeholder="Please input news title"></p>
 		<p><input type="submit" name="add" value="Add news"></p>
 	</form>
+	
 </div>

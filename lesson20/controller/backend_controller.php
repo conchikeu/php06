@@ -1,5 +1,6 @@
 <?php
 	require_once 'model/news_model.php';
+	require_once 'model/product_model.php';
 	class BackendController {
 		/*
 			* Description: Xu ly yeu cau o backend
@@ -20,7 +21,6 @@
 			} else if ($controller == 'products'){
 					// Xu ly them sua xoa products				 
 				  $this->handleProduct($action);
-
 			}
 		}
 		public function handleNews($action) {
@@ -54,7 +54,6 @@
 						}
 					}
 					include 'view/admin/news/edit.php';
-
 					break;
 				case 'delete':
 					$id = isset($_GET['id'])?$_GET['id']:"";
@@ -66,7 +65,6 @@
 					} else {
 						echo "id nay khong ton tai";
 					}
-					# code...
 					break;
 				default:
 					$newsModel = new NewsModel();
@@ -76,7 +74,53 @@
 			}
 		}
 		public function handleProduct($action) {
-			echo $action;
-		}
-	}
+			switch ($action) {
+				case 'listProducts':
+					$productsModel = new ProductsModel();
+					$listProducts = $ProductsModel->listProducts();
+					include 'view/admin/products/listProducts.php';
+					break;
+				case 'addProducts':
+					// xu ly add Products
+					if (isset($_POST['addProducts'])) {
+						$products = $_POST['products'];
+						$productsModel = new ProductsModel();
+						if ($productsModel->addProducts($products) === TRUE) {
+							header("Location: admin.php?controller=products&action=list");
+						}
+					}
+					include 'view/admin/products/addProducts.php';
+					break;
+				case 'editProducts':
+					$id = isset($_GET['id'])?$_GET['id']:"";
+					$productsModel = new NewsModel();
+					$newEditProducts = $newEditProducts->getProductsInfo($id);
+					if (isset($_POST['editProducts'])) {
+						$products = $_POST['products'];
+						$productsModel = new ProductsModel();
+						if ($productsModel->editProducts($id, $products) === TRUE) {
+							header("Location: admin.php?controller=products&action=list");
+						}
+					}
+					include 'view/admin/products/editProducts.php';
+					break;
+				case 'delete':
+					$id = isset($_GET['id'])?$_GET['id']:"";
+					if (!empty($id)) {
+						$productsModel = new ProductsModel();
+						if ($productsModel->deleteProducts($id) === TRUE) {
+							header("Location: admin.php?controller=products&action=list");
+						}
+					} else {
+						echo "id nay khong ton tai";
+					}
+					break;
+				default:
+					$productsModel = new ProductsModel();
+					$listProducts = $productsModel->listProducts();
+					include 'view/admin/products/listProducts.php';
+					break;
+			}
+		}		
+	}			
 ?>

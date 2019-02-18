@@ -11,7 +11,7 @@
 		<li><a href="admin.php">Dashboard</a></li>
 		<li><a href="admin.php?controller=news&action=add">Add News</a></li>
 		<li><a href="admin.php?controller=news&action=list">List News</a></li>
-		<li><a href="admin.php?controller=products&action=add">Add Product</a></li>
+		<li><a href="admin.php?controller=products&action=add">Add Products</a></li>
 		<li><a href="admin.php?controller=products&action=list">List Products</a></li>
 	</ul>
 	<?php 
