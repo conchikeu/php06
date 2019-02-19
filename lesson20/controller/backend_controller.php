@@ -20,7 +20,7 @@
 
 			} else if ($controller == 'products'){
 					// Xu ly them sua xoa products				 
-				  $this->handleProduct($action);
+				  $this->handleProducts($action);
 			}
 		}
 		public function handleNews($action) {
@@ -46,7 +46,7 @@
 					$id = isset($_GET['id'])?$_GET['id']:"";
 					$newsModel = new NewsModel();
 					$newEdit = $newsModel->getNewsInfo($id);
-					if (isset($_POST['edit'])) {
+					if (isset($_POST['editNews'])) {
 						$title = $_POST['title'];
 						$newsModel = new NewsModel();
 						if ($newsModel->edit($id, $title) === TRUE) {
@@ -73,7 +73,7 @@
 					break;
 			}
 		}
-		public function handleProduct($action) {
+		public function handleProducts($action) {
 			switch ($action) {
 				case 'listProducts':
 					$productsModel = new ProductsModel();
@@ -91,11 +91,11 @@
 					}
 					include 'view/admin/products/addProducts.php';
 					break;
-				case 'editProducts':
+				case 'editProducts': //gia tri editProducts duoc truyen tu link : "admin.php?controller=products&action=editProducts&id=" va hien thi listProducts
 					$id = isset($_GET['id'])?$_GET['id']:"";
-					$productsModel = new NewsModel();
-					$newEditProducts = $newEditProducts->getProductsInfo($id);
-					if (isset($_POST['editProducts'])) {
+					$productsModel = new ProductsModel();
+					$newEditProducts = $productsModel->getProductsInfo($id);
+					if (isset($_POST['editProducts'/* gia tri lay tu name="editProducts" editProducts.php*/])) {
 						$products = $_POST['products'];
 						$productsModel = new ProductsModel();
 						if ($productsModel->editProducts($id, $products) === TRUE) {

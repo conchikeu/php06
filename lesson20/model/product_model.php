@@ -3,7 +3,7 @@ require_once 'config/database.php';
 class ProductsModel extends ConnectDB {
 	public function addProducts($products){
 		$sql = "INSERT INTO products2(products) VALUES ('$products')";
-		return mysql_query($this->connect_db(), $sql);
+		return mysqli_query($this->connect_db(), $sql);
 	}
 	public function listProducts (){
 		$sql = "SELECT * FROM products2";
