@@ -1,17 +1,26 @@
+body{
+	text-align: center;
+	background: gray;
+}
 h1 {
-	color: red;
+	color: blue;
+	font-size: 50px;
 }
 a {
 	text-decoration: none;
 }
-ul {
-	height: 50px;
-	display: block;
-}
-ul li {
+li {
 	float: left;
 	list-style-type: none;
-	padding: 5px;
-	margin: 5px;
-	border: 1px solid gray;
+	border: 1px solid black;
+}
+#frontend-align-top-table{
+
+}
+.align-li{
+    padding: 5px 3%;
+    font-size: 29px;
+}
+#content{
+	margin: auto;
 }

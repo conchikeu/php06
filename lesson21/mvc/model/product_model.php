@@ -25,5 +25,10 @@ class ProductsModel extends ConnectDB {
 		$sql = "SELECT * FROM products2";
 		return mysqli_query($this->connect_db(), $sql);
 	}
+	public function login($username, $password){
+		$sql = "SELECT * FROM userinfo WHERE username = '$username' AND password = '$password'";
+		$result = mysqli_query($this->connect_db(), $sql);
+		return $result->fetch_assoc();
+	}
 }
 ?>
